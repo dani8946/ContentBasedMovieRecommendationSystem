@@ -1,0 +1,82 @@
+/* style.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #66bab3, #6d56af);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    background: linear-gradient(135deg,#89aeb1, #077e8e);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 50px auto;
+}
+
+
+input {
+    width: 76%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #b079ca;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #7d348f;
+}
+
+
+h1 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: scale(1.05);
+    background: #924cae;
+}
+
+.poster-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.poster-list li {
+    text-align: center;
+}

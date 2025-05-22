@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation System</h1>
+        <input type="text" id="movieInput" placeholder="Enter a movie name">
+        <button onclick="getRecommendations()">Get Recommendations</button>
+        <h3>Recommended Movies:</h3>
+        <ul id="output" class="poster-list"></ul>
+    </div>
+
+    <script>
+        function getRecommendations() {
+    const movie = document.getElementById("movieInput").value;
+
+    fetch("http://127.0.0.1:5000/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ movie: movie })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const output = document.getElementById("output");
+        output.innerHTML = ""; 
+
+        data.recommended_movies.forEach(movie => {
+            const li = document.createElement("li");
+
+            const img = document.createElement("img");
+            img.src = movie.poster;
+            img.alt = movie.title;
+            img.style.width = "100px";
+            img.style.height = "80px";
+            img.style.borderRadius = "10px";
+
+            const title = document.createElement("p");
+            title.innerText = movie.title;
+
+            li.appendChild(img);
+            li.appendChild(title);
+            output.appendChild(li);
+        });
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+
+    </script>
+</body>
+</html>
